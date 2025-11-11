@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #loops
-while IFS=':' read -r usr _ id _ _ path _; do
-	echo "$usr $id $path"
+while read -r line; do
+	echo "$line" | cut -d: -f1,3,6
 done < /etc/passwd
