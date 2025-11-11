@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#loops
+while IFS=':' read -r usr _ id _ _ path _; do
+	echo "$usr $id $path"
+done < /etc/passwd
