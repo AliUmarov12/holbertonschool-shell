@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #for loop
-while [$i -le 10]; do
+while [ $i -le 10 ]; do
 	echo "Best School"
 	i=$((i+1))
 done
