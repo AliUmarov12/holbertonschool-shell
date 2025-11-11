@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #while loop
 while [ $i -le 10 ]; do
-	: $i
+	:$i
 	echo "Best School"
 	i=$((i+1))
 done
