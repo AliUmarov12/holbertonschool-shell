@@ -13,7 +13,7 @@ while [ $i -le 20 ]; do
 		echo "bad luck from Italy"
 		;;
 	*)
-		echo "Best School"
+		echo "$i"
 		;;
 	esac
 	i=$((i+1))
