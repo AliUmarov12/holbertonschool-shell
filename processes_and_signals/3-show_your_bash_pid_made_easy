@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #ksdkj
+# shellcheck disable=SC1091
 source sagol
