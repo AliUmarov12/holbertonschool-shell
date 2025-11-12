@@ -1,0 +1,9 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0   2892    92 ?        Ss   08:14   0:00 /bin/sh -c echo root:`echo $HOSTNAME | cut -d '-' -f 1` | chpasswd && service ssh restart > /dev/null && /etc/run.sh
+root          25  0.0  0.0  15440  1668 ?        Ss   08:14   0:00 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+root          26  0.0  0.0   4364   388 ?        S    08:14   0:00 /bin/bash /etc/run.sh
+root          40  0.2  0.1  18520  2212 ?        Sl   08:15   0:05  \_ ttyd --writable --credential=ed91a6ea82874b97bea55e72d44a27f5:ed91a6ea82874b97bea55e72d44a27f5 -p 3001 /bin/bash
+root          65  0.0  0.1   4628  2620 pts/0    Ss   08:15   0:00  |   \_ /bin/bash
+root       11259  0.0  0.0   7064  1608 pts/0    R+   08:59   0:00  |       \_ ps auxf
+root          48  0.0  0.0   2892    96 ?        S    08:15   0:00  \_ sh /usr/bin/openvscode-server --host 0.0.0.0 --connection-token=ed91a6ea82874b97bea55e72d44a27f5 --log off 2
+root          54  0.0  0.8 11781724 17008 ?      Sl   08:15   0:00      \_ /usr/node /usr/out/server-main.js --host 0.0.0.0 --connection-token=ed91a6ea82874b97bea55e72d44a27f5 --log off 2

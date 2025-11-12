@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#lsdj
+# shellcheck disable=SC2009
+grep "bash" salam
