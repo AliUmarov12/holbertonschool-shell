@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-#kjsd
+#jsdks
 # shellcheck disable=SC1091
+
 PIDFILE="/var/run/my_process.pid"
 PROCESS="./manage_my_process"
 
