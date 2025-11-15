@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 #hjshd
 # shellcheck disable=1091
-killall 7-highlander
+
+# 7-highlander prosesinin PID-ni tapırıq
+PID=$(pgrep 7-highlander)
+
+# PID tapılıbsa, prosesi öldürürük
+if [ -n "$PID" ]; then
+    kill "$PID"
+fi
