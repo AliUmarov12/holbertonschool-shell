@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#hjshd
+# shellcheck disable=1091
+killall 7-highlander
