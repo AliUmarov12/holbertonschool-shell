@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-pkill -f 4-to_infinity_and_beyond
+for pid in /proc/[0-9]*; do
+    if [ -f "$pid/comm" ]; then
+        name=$(cat "$pid/comm" 2>/dev/null)
+        if [ "$name" = "4-to_infinity_and_beyond" ]; then
+            echo "Found PID: $(basename "$pid")"
+            exec > /dev/null 2>&1
+            exec sleep 1
+        fi
+    fi
+done
