@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-for pid in /proc/[0-9]*; do
-    if [ -f "$pid/comm" ]; then
-        name=$(cat "$pid/comm" 2>/dev/null)
-        if [ "$name" = "4-to_infinity_and_beyond" ]; then
-            echo "Found PID: $(basename "$pid")"
-            exec > /dev/null 2>&1
-            exec sleep 1
-        fi
-    fi
-done
+pid=$(pgrep -f 4-to_infinity_and_beyond)
+
+if [ -n "$pid" ]; then
+    kill "$pid"
+fi
