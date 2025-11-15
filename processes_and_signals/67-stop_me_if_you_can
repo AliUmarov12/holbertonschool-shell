@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#hsd
+# shellcheck disable=SC1091
+pid=$(pgrep -f 7-highlander)
+
+if [ -n "$pid" ]; then
+    kill "$pid"
+fi

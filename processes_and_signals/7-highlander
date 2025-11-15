@@ -1,0 +1,10 @@
+#!/usr/bin/env bash 
+#hjh
+# shellcheck disable=1091
+trap 'echo "I am invincible!!!"' SIGTERM
+
+# Sonsuz döngə
+while true; do
+    echo "To infinity and beyond indefinitely"
+    sleep 2
+done
