@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#jdkw
+# shellcheck disable=SC1091
+echo $$ > /var/run/myscript.pid
+
+# SIGTERM → "I hate the kill command"
+sigterm_handler() {
+    echo "I hate the kill command"
+}
+
+# SIGINT (Ctrl+C) → "Y U no love me?!"
+sigint_handler() {
+    echo "Y U no love me?!"
+}
+
+# SIGQUIT və SIGTERM → cleanup (pid faylını sil və çıx)
+cleanup_handler() {
+    rm -f /var/run/myscript.pid
+    exit 0
+}
+
+# Siqnalları qur
+trap sigterm_handler SIGTERM
+trap sigint_handler SIGINT
+trap cleanup_handler SIGQUIT
+trap cleanup_handler SIGTERM
+
+# Sonsuz dövr
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
