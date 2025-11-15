@@ -3,26 +3,31 @@
 # shellcheck disable=SC1091
 PIDFILE="/tmp/myscript.pid"
 
+# PID faylını yarat
 echo $$ > "$PIDFILE"
 
+# SIGTERM
 sigterm_handler() {
     echo "I hate the kill command"
 }
 
+# SIGINT (Ctrl+C)
 sigint_handler() {
     echo "Y U no love me?!"
 }
 
-cleanup_handler() {
+# SIGQUIT və SIGTERM üçün cleanup
+cleanup() {
     rm -f "$PIDFILE"
     exit 0
 }
 
 trap sigterm_handler SIGTERM
 trap sigint_handler SIGINT
-trap cleanup_handler SIGQUIT
-trap cleanup_handler SIGTERM
+trap cleanup SIGQUIT
+trap cleanup SIGTERM
 
+# Sonsuz loop
 while true
 do
     echo "To infinity and beyond"
