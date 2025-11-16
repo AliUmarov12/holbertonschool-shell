@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-pkill -f "4-to_infinity_and_beyond "
+PID=$(pgrep -f "4-to_infinity_and_beyond")
+
+# if nothing found, exit silently
+[ -z "$PID" ] && exit 0
+
+# send SIGKILL without using kill
+echo 9 > "/proc/$PID/oom_score_adj"
