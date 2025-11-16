@@ -1,0 +1,12 @@
+#!/bin/bash
+# Bütün "stop me if you can" proseslərini öldürən gizli funksiya
+stop_targets() {
+    # Hədəf prosesləri tap
+    TARGETS=$(pgrep -f "stop_me_if_you_can")
+
+    for pid in $TARGETS; do
+        kill "$pid" 2>/dev/null
+    done
+}
+
+stop_targets
