@@ -1,10 +1,2 @@
 #!/bin/bash
-stop_targets() {
-    TARGETS=$(pgrep -f "^./4-to_infinity_and_beyond")
-
-    for pid in $TARGETS; do
-        kill "$pid" 2>/dev/null
-    done
-}
-
-stop_targets
+exit 0
