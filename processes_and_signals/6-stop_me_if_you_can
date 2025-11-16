@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-pkill -9 -f "4-to_infinity_and_beyond"
+set -eu
+
+TARGET="4-to_infinity_and_beyond"
+
+# find exact-match PIDs (pgrep -x matches the exact process name)
+PIDS="$(pgrep -x "$TARGET" || true)"
+
+if [ -z "$PIDS" ]; then
+  echo "No '$TARGET' process found."
+  exit 0
+fi
+
+for pid in $PIDS; do
+  # don't try to kill this script's shell
+  if [ "$pid" -eq $$ ]; then
+    echo "Skipping self (pid $pid)."
+    continue
+  fi
+
+  echo "Stopping PID $pid..."
