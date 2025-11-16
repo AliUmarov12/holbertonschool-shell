@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-pkill -f "4-to_infinity_and_beyond"
+pkill -f "./4-to_infinity_and_beyond"
