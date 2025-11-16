@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #hsd
 # shellcheck disable=SC1091
-source abcd
+bash abcd
