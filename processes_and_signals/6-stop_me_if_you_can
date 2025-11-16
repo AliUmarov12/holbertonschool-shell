@@ -3,7 +3,7 @@
 # shellcheck disable=SC1091
 PID=$(pgrep -f "4-to_infinity_and_beyond")
 
- if nothing found, exit silently
+# if nothing found, exit silently
 [ -z "$PID" ] && exit 0
 
 # send SIGKILL without using kill
